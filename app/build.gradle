@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.1"
+    defaultConfig {
+        applicationId "com.example.moviesapp"
+        minSdkVersion 22
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildTypes.each {
+        it.buildConfigField("String", "THE_MOVIE_DB_API_KEY", TheMovieDBApiKey)
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    //TODO circle image
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+    //TODO card view
+    implementation 'androidx.cardview:cardview:1.0.0'
+    //TODO recycler view
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    //TODO RetrofitClient
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    //TODO picasso
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    //paperdb
+    implementation 'io.paperdb:paperdb:2.5'
+    //to create animation
+    implementation 'com.google.android.material:material:1.0.0'
+    //TODO diagonal-layout
+    implementation 'com.github.florent37:diagonallayout:1.0.9'
+    //kenburnersview
+    implementation 'com.flaviofaria:kenburnsview:1.0.7'
+    //TODO nice spinner
+    //implementation 'com.github.arcadefire:nice-spinner:1.4.3'
+    //TODO zoom image
+    implementation 'com.jsibbold:zoomage:1.3.0-SNAPSHOT'
+    implementation 'org.jetbrains:annotations-java5:15.0'
+}
